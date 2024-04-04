@@ -7,10 +7,6 @@ on:
   pull_request:
   schedule:
     - cron: '0 21 * * *' # Runs nightly at 10 PM Berlin time (9 PM UTC)
-<<<<<<< HEAD
-
-=======
->>>>>>> 209e1590fece6935877b573615478b54a162247e
 
 jobs:
   cypress-tests:
