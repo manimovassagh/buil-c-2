@@ -1,6 +1,13 @@
 name: Run Cypress Tests
 
-on: [push, pull_request]
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+    schedule:
+      - cron: '0 21 * * *' # Runs nightly at 10 PM Berlin time (9 PM UTC)
+  
 
 jobs:
   cypress-tests:
