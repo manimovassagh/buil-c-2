@@ -1,17 +1,14 @@
-name: Cypress Tests
+name: Run Cypress Tests
 
-on: push
+on: [push, pull_request]
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  cypress-tests:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm start
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build and run Cypress tests in Docker
+      run: npm run cypress:docker:run
