@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "cypress:run": "cypress run",
-    "cypress:docker:run": "docker run -it -v $PWD:/e2e -w /e2e cypress/included:latest",
+    "cypress:docker:run": "docker run -v $PWD:/e2e -w /e2e cypress/included:latest",
     "test": "npm run cypress:run"
   },
   "author": "",
