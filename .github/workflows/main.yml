@@ -22,11 +22,21 @@ jobs:
         with:
           node-version: '14'
 
+      # Print current directory and its contents
+      - name: Debug
+        run: |
+          pwd
+          ls -la
+
       # Install dependencies from package.json
       - name: Install Dependencies
         run: npm ci
 
+      # Print installed dependencies
+      - name: List Installed Dependencies
+        run: npm ls
+
       # Run Cypress tests in Docker container
       - name: Run Cypress Tests in Docker
         run: |
-          docker run -v $PWD:/e2e -w /e2e cypress/included:latest run
+          docker run -v $PWD:/e2e -w /e2e cypress/included:latest run --browser chrome
